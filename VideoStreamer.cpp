@@ -35,3 +35,27 @@ cv::Mat VideoStreamer::grab()
 
     return frame;
 }
+
+cv::Mat VideoStreamer::grabLeft() {
+    cv::Mat frame(height, width, CV_8UC3);
+
+    if (!videoL.read(imageL)) {
+        std::cout << "No frame Left" << std::endl;
+    }
+
+    imageL.copyTo(frame(cv::Rect(0, 0, width, height)));
+
+    return frame;
+}
+
+cv::Mat VideoStreamer::grabRight() {
+    cv::Mat frame(height, width, CV_8UC3);
+
+    if (!videoL.read(imageR)) {
+        std::cout << "No frame Right" << std::endl;
+    }
+
+    imageR.copyTo(frame(cv::Rect(0, 0, width, height)));
+
+    return frame;
+}

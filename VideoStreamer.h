@@ -17,6 +17,8 @@ private:
 public:
     VideoStreamer(int height, int width, std::string addressVideoL, std::string addressVideoR);
     cv::Mat grab();
+    cv::Mat grabLeft();
+    cv::Mat grabRight();
 };
 
 
